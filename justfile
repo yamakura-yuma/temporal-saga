@@ -88,3 +88,5 @@ ci: fmt-check vet build test docs-check spec
 # Deploy the shared agent config from apm.yml into ./.claude/.
 apm-install:
     apm install
+
+# [gate-probe] 段階 C のパスに触る確認用のコメント。マージしない。
