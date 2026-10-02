@@ -176,3 +176,5 @@ just ci      # fmt-check, vet, build, ユニットテスト, docs-check, 仕様
 ## ライセンス・作者情報
 
 MIT License。作者は yamakura-yuma。詳細は [LICENSE](LICENSE) を参照してください。
+
+[gate-probe] 消した API `IdempotencyKeyOf` を README に書き戻す（docs-check が落ちる想定）。
