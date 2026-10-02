@@ -15,6 +15,19 @@ just shell           # コンテナの対話シェル
 仕様は godog で書かれた普通の Go のテストなので、入口は `go test` だけです。何がどこに
 書いてあるかは `docs/specs/README.md` が索引になっています。
 
+## CI
+
+PR では GitHub Actions が `just ci` をそのまま走らせます（`.github/workflows/ci.yml`）。
+中身は dotfiles の再利用 workflow（`yamakura-yuma/dotfiles` の `just-ci.yml`、コミット SHA で
+固定）で、`just` を入れて `just ci` を打つだけです。Actions 専用の手順は足していません。
+`just ci` は dev コンテナを使うので、runner では image のビルドから始まります（キャッシュ
+が無いと数分かかります）。仕様が起動する Temporal の dev server はコンテナの中のプロセスで、
+クラスタや外のサーバは要りません。
+
+`.github/` と `justfile` は `CODEOWNERS` で人の承認が要る側（段階 C）に置いてあります。
+ゲートを弱める変更を、ゲートを通る側が自分で通せないようにするためです。型の全体は
+dotfiles の `docs/gates.md` にあります。
+
 ## 速いループを壊さないこと
 
 `just test` は `go test -short ./...` です。`-short` のとき仕様は自分を skip し、

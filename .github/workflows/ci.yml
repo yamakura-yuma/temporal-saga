@@ -1,0 +1,10 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  ci:
+    uses: yamakura-yuma/dotfiles/.github/workflows/just-ci.yml@9deac6498c82ab599e96d0e009c83bbc493dfbc4
