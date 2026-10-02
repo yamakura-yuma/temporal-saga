@@ -92,9 +92,10 @@ example は1テーマ1個。増やすときもこの単位を守り、`diagram.h
   - `godog-specs` — `docs/specs/` の仕様と `specsteps/` の書き方
   - `upstream-docs` — 上流のドキュメントを指すか写すかの基準と、腐りの検出
 - `core-principal` — 共有ハーネス（ルール、git のガードフック、`core-*` スキル）。
-  [dotfiles](https://github.com/yamakura-yuma/dotfiles) リポジトリからコミットで
-  固定して取得する。変更は向こうで行い、ここでは `apm update` で `ref` を上げる。
-  ローカルでフォークしないこと。
+  [dotfiles](https://github.com/yamakura-yuma/dotfiles) リポジトリの `main` を追う
+  （`apm.yml` は `ref: main`）。新しい worktree では `orca.yaml` の setup が
+  `apm install` のあと `apm update core-principal --yes` で最新に上げ、`apm.lock.yaml`
+  の差分は戻す。変更は向こうで行い、ここでは触らない。ローカルでフォークしないこと。
 
 他のリポジトリでも同じに読めるものは `.apm/` ではなく `core-principal` に属する。
 `temporal-review` と `upstream-docs` はその線では共有側だが、`core-principal` は

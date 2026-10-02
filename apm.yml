@@ -20,8 +20,10 @@ targets:
 #                  repo and carry no repo-specific paths in their bodies, so
 #                  they can move to a shared package once one exists.
 #   core-principal the shared harness (rules, guard hooks, core-* skills) from
-#                  the dotfiles repo, pinned by commit because upstream
-#                  publishes no tags; bump with `apm update`.
+#                  the dotfiles repo. Our own package follows main (see
+#                  orca.yaml, which brings it up to date in each new
+#                  worktree); an external package is pinned by commit because
+#                  upstream publishes no tags.
 #
 # The dividing line is whether it would read the same in another repo. If it
 # would, it belongs in core-principal, not in ./.apm/ — a local fork of a shared
@@ -30,7 +32,7 @@ dependencies:
   apm:
   - git: https://github.com/yamakura-yuma/dotfiles.git
     path: core-principal
-    ref: 51856cebaa34d148600b7f64d20d34fac4f2401e
+    ref: main
     alias: core-principal
     targets:
     - claude
