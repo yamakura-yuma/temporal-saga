@@ -25,7 +25,8 @@ PR では GitHub Actions が `just ci` をそのまま走らせます（`.github
 クラスタや外のサーバは要りません。
 
 `.github/` と `justfile` は `CODEOWNERS` で人の承認が要る側（段階 C）に置いてあります。
-ゲートを弱める変更を、ゲートを通る側が自分で通せないようにするためです。型の全体は
+ゲートを弱める変更を、ゲートを通る側が自分で通せないようにするためです。承認が効くのは、
+branch protection で code owner のレビューを必須にしたあとです。型の全体は
 dotfiles の `docs/gates.md` にあります。
 
 ## 速いループを壊さないこと
