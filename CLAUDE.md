@@ -29,6 +29,8 @@ Temporal のワークフローを書くための Go の部品集。今入って�
   起動する `TestMain`。中身はすべて `_test.go`。**この2分割と `specsteps` という名前は
   このリポジトリの発明で、Go の規約ではない**（Go にテスト専用ディレクトリの規約は無い）。
   理由は `docs/development.md`「置き場所」
+- `.github/` — PR で `just ci` を走らせる `workflows/ci.yml`（dotfiles の再利用 workflow を SHA 固定で呼ぶだけ）と、
+  ゲート自身を人の承認側に置く `CODEOWNERS`。型は dotfiles の `docs/gates.md`。`docs/development.md`「CI」
 - `example/activity/` — example のアクティビティ。**ワークフローごとではなく1セット**で、
   1アクティビティ1ファイル（`reserve.go`、`charge.go`、`ship.go`、`pack.go`）。各ファイルが
   入力型と forward と補償を持つ。`activity.go` に `Activities` 型と、仕様のための観測窓
