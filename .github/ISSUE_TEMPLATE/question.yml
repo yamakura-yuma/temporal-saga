@@ -1,0 +1,30 @@
+name: 質問
+description: |
+  質問があるときに使います。
+  遠慮なく Issue で聞いてください。
+labels:
+  - question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: 質問
+      description: |
+        質問を具体的に書いてください。
+        例のコードがあると説明しやすいときは、書いてください。
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: 質問の背景と、なぜそれを知りたいのかを書いてください。
+    validations:
+      required: false
+  - type: textarea
+    id: note
+    attributes:
+      label: 補足
+      description: ほかに伝えたいことがあれば書いてください。
+    validations:
+      required: false

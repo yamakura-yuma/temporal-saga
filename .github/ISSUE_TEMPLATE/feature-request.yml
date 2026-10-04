@@ -1,0 +1,56 @@
+name: 機能の要望
+description: 機能を足してほしい、変えてほしいときに使います。
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: feature-overview
+    attributes:
+      label: 要望の概要
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: なぜ必要か
+      description: 解きたい問題を書いてください。
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: 対象（ファイル・パス）
+      description: 変えてほしいファイルやディレクトリを書いてください。分からなければ、見当をつけたところで構いません。
+      placeholder: |
+        例: saga/saga.go
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: 完了条件
+      description: どうなったら要望が満たされたと言えるかを、確かめられる形で書いてください。
+      placeholder: |
+        例:
+        - `just ci` が通る
+        - ○○のとき、△△になる
+    validations:
+      required: true
+  - type: textarea
+    id: example-code
+    attributes:
+      label: 使い方のイメージ
+      description: |
+        使い方をコードで示してください。例: 新しいオプションが欲しいなら、それをどう呼ぶか。
+      value: |
+        ```go
+
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: note
+    attributes:
+      label: 補足
+    validations:
+      required: false
