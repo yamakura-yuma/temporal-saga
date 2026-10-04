@@ -1,9 +1,14 @@
 # Orca が新しい worktree を作るたびに走らせる。.claude/ と apm_modules/ は gitignore
 # なので、ここでハーネスを展開する。自分のパッケージは main の最新に上げるが、
 # lock の差分はワーカーの PR に混ぜないので戻す。外部パッケージは lock どおり。
+# deny は worktree の .claude/settings.local.json に置く。apm は hook ファイルに書いた
+# permissions を捨てるので、apm が運んだ正本（core-principal の lib/worker-deny.settings.json）
+# を setup で複写する。deny は権限モード（bypass でも auto でも）によらず効く。
+# 複写は update の後に置く（正本が最新になってから写す）。
 scripts:
   setup: |
     apm install
     apm update core-principal --yes
+    cp .claude/hooks/core-principal/.apm/hooks/scripts/lib/worker-deny.settings.json .claude/settings.local.json
     git checkout -- apm.lock.yaml
 setupAgentStartupPolicy: wait-for-setup
