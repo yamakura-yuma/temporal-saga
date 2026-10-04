@@ -1,0 +1,63 @@
+name: 困りごとの相談
+description: |
+  不具合ではなく、使っていて困っていて手助けがほしいときに使います。
+  不具合かどうか分からないときも、こちらを使ってください。
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境
+      description: |
+        このリポジトリのコマンドはすべて Docker コンテナの中で `just` から動きます（ホストに Go は要りません）。
+        再現したコミット、`go.mod` の `go` と `go.temporal.io/sdk` の行、`docker --version`、`just --version`、OS を貼ってください。
+        ライブラリとして使っていて困っているときは、利用側の `go.mod` にある temporal-workflow-kit と Temporal SDK のバージョン、
+        つないでいる Temporal サーバの種類と版（Cloud、自前、`temporal server start-dev` など）を書いてください。
+        複数の版で試したときは、その結果も書いてください。例: 最新の main では起きるが、以前のコミットでは起きない。
+      placeholder: |
+        ```console
+        $ git rev-parse HEAD
+        $ grep -E '^go |go.temporal.io/sdk ' go.mod
+        $ docker --version
+        $ just --version
+        ```
+    validations:
+      required: true
+  - type: textarea
+    id: overview
+    attributes:
+      label: 困っていること
+      description: 何をしようとして、何が起きて、どう困っているかを書いてください。
+    validations:
+      required: true
+  - type: textarea
+    id: how-to-reproduce
+    attributes:
+      label: 再現手順
+      description: |
+        困っている状況を再現できるところまで書いてください。
+        `just test`、`just spec` など、打ったコマンドと出力をそのまま貼ってください。
+        試したことがあれば、その結果も書いてください。
+      value: |
+        手順
+
+        1. 
+
+        関連するコード（ワークフロー、アクティビティ、設定など）
+
+        ```go
+
+        ```
+
+        打ったコマンドと出力
+
+        ```console
+        $ 
+        ```
+    validations:
+      required: false
+  - type: textarea
+    id: note
+    attributes:
+      label: 補足
+    validations:
+      required: false
