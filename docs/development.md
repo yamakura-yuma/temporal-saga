@@ -24,13 +24,8 @@ PR では GitHub Actions が `just ci` をそのまま走らせます（`.github
 が無いと数分かかります）。仕様が起動する Temporal の dev server はコンテナの中のプロセスで、
 クラスタや外のサーバは要りません。
 
-`.github/` と `justfile`、それに `just ci` の中身を決める `docker-compose.yml`、`Dockerfile`、
-`flake.nix`、`flake.lock`、`scripts/docs-check.sh` は、`CODEOWNERS` で人の承認が要る側
-（段階 C）に置いてあります。ゲートを弱める変更を、ゲートを通る側が自分で通せないように
-するためです（たとえば `docker-compose.yml` の entrypoint を `true` にすれば、`ci` は空で
-通ります）。承認が効くのは、
-branch protection で code owner のレビューを必須にしたあとです。型の全体は
-dotfiles の `docs/gates.md` にあります。
+`just ci` が通ればマージできます（人の承認は要りません）。型の全体は dotfiles の
+`docs/gates.md` にあります。
 
 ## 速いループを壊さないこと
 
