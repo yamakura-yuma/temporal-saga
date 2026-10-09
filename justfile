@@ -1,3 +1,4 @@
+# gate verification (stage C removal); this PR is closed unmerged
 # Development commands for temporal-workflow-kit.
 #
 # Everything runs inside the container built from `Dockerfile` (Go +
